@@ -6,3 +6,5 @@ hdbscan
 scikit-learn
 plotly
 flask
+gunicorn
+joblib
