@@ -234,7 +234,10 @@ if __name__ == '__main__':
     # Attempt to load models on startup
     load_models_into_cache()
     
+    # Get port from environment variable (for deployment) or use 5000 for local
+    port = int(os.environ.get('PORT', 5000))
+    
     print("\nStarting Flask server...")
-    print("Access the dashboard at http://127.0.0.1:5000")
-    print("Access the admin page at http://127.0.0.1:5000/admin")
-    app.run(debug=True, port=5000)
+    print(f"Access the dashboard at http://127.0.0.1:{port}")
+    print(f"Access the admin page at http://127.0.0.1:{port}/admin")
+    app.run(debug=False, host='0.0.0.0', port=port)
